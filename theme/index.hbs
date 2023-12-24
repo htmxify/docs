@@ -32,7 +32,7 @@
         <link rel="stylesheet" href="{{ path_to_root }}css/print.css" media="print">
         {{/if}}
 
-        <!-- Highlight.js Stylesheets -->
+        <!-- Prism.js Stylesheets -->
         <link rel="stylesheet" href="{{ path_to_root }}highlight.css">
 
         <!-- Custom theme stylesheets -->
@@ -156,10 +156,6 @@
                     <h1 class="menu-title">HTMXify</h1>
 
                     <div class="right-buttons">
-                        <a href="{{ path_to_root }}print.html" title="Print this book" aria-label="Print this book">
-                            Print
-                        </a>
-                        &middot;
                         <a href="https://github.com/htmxify/docs">Edit on GitHub</a>
 
                     </div>
@@ -247,24 +243,6 @@
         {{#each additional_js}}
         <script src="{{ ../path_to_root }}{{this}}"></script>
         {{/each}}
-
-        {{#if is_print}}
-        {{#if mathjax_support}}
-        <script>
-        window.addEventListener('load', function() {
-            MathJax.Hub.Register.StartupHook('End', function() {
-                window.setTimeout(window.print, 100);
-            });
-        });
-        </script>
-        {{else}}
-        <script>
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
-        {{/if}}
-        {{/if}}
 
     </div>
     </body>
